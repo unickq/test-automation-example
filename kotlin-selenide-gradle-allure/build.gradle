@@ -1,0 +1,66 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.11'
+    id 'io.qameta.allure' version '2.6.0'
+}
+
+group 'com.github.unickq.test-automation-example.kotlin-selenide-gradle-allure'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def allureVersion = '2.12.1'
+def junitVersion = '5.4.2'
+def selenideVersion = '5.2.4'
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    // JUnit5
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    testCompile('org.assertj:assertj-core:3.11.1')
+
+    // Allure
+    testRuntimeOnly("io.qameta.allure:allure-junit5:$allureVersion")
+    testCompile("io.qameta.allure:allure-java-commons:$allureVersion")
+    testCompile("io.qameta.allure:allure-attachments:$allureVersion")
+    testCompile("io.qameta.allure:allure-generator:$allureVersion")
+    testCompile("io.qameta.allure:allure-httpclient:$allureVersion")
+    testCompile("io.qameta.allure:allure-selenide:$allureVersion")
+
+    //Selenide
+    testCompile ("com.codeborne:selenide:$selenideVersion")
+
+    //slf4j
+    testCompile ("org.slf4j:slf4j-jdk14:1.7.26")
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'allure.results.directory', "$projectDir/build/allure-results"
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED", "STANDARD_OUT", "STANDARD_ERROR"
+    }
+    scanForTestClasses = false
+    testLogging.showStandardStreams = true
+    maxParallelForks = (int) (Runtime.runtime.availableProcessors().intdiv(2) ?: 1)
+    dependsOn 'cleanTest'
+}
+
+allure {
+    autoconfigure = true
+    version = '2.12.1'
+    clean = true
+    reportDir = file("$projectDir/build/allure-report")
+    resultsDir = file("$projectDir/build/allure-results")
+    downloadLinkFormat = 'https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/%s/allure-commandline-%<s.zip'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}

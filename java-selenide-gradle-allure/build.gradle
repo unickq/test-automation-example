@@ -6,8 +6,8 @@ plugins {
     id 'com.adarshr.test-logger' version '1.6.0'
 }
 
-group 'com.github.unickq.selenide-allure-gradle'
-version '0.1.1'
+group 'com.github.unickq.test-automation-example.java-selenide-gradle-allure'
+version '0.1'
 
 sourceCompatibility = 1.8
 
@@ -40,9 +40,6 @@ dependencies {
     testCompile group: 'io.qameta.allure', name: 'allure-junit-platform', version: allureVersion
 
     testCompile group: 'org.slf4j', name: 'slf4j-jdk14', version: slf4jVersion
-
-    testCompile "org.testcontainers:testcontainers:1.11.1"
-    testCompile "org.testcontainers:selenium:1.11.1"
 }
 
 allure {

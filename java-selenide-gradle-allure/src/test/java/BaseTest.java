@@ -9,12 +9,11 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
     static {
-        //System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         Configuration.baseUrl = "https://github.com";
     }
 
     @BeforeEach
-    void beforeEach(){
+    void beforeEach() {
         open("/");
     }
 

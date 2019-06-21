@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <AssemblyName>NUnitNetCore</AssemblyName>
+
+    <RootNamespace>com.github.unickq.test-automation-example</RootNamespace>
+
+    <PackageProjectUrl>https://github.com/unickq/test-automation-example</PackageProjectUrl>
+
+    <Authors>unickq</Authors>
+
+
+    <Product>test-automation-example</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit.Allure" Version="1.0.6" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.1" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="75.0.3770.90" />
+  </ItemGroup>
+
+</Project>

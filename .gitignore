@@ -1,6 +1,9 @@
 .allure
 .idea
 
+*/cypress/videos/*
+*/cypress/screenshots/*
+
 ### Csharp ###
 
 # User-specific files

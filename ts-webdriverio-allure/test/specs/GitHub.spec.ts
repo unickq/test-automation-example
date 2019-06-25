@@ -11,12 +11,12 @@ describe('Github', () => {
     it('should pass', () => {
         expect(SearchPage.repoH3list.map(function(el){
             return el.getText()
-        })).to.contains('unickq/allure-nunit');
+        })).to.include('unickq/allure-nunit');
     });
 
     it('should fail', () => {
         expect(SearchPage.repoH3list.map(function(el){
             return el.getText()
-        })).to.contains('junit');
+        })).to.include('junit');
     });
 });

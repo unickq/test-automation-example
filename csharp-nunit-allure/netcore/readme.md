@@ -4,6 +4,8 @@
 - Selenium 3
 - Allure
 
+Parallel run available
+
 ##### Run tests
 `dotnet test`
 

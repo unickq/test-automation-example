@@ -5,6 +5,8 @@
 - Selenide
 - Allure
 
+Parallel run available
+
 ##### Run tests
 `gradlew test clean`
 ##### Serve Allure report

@@ -4,6 +4,9 @@
 */cypress/videos/*
 */cypress/screenshots/*
 
+*/allure-results/*
+.vscode
+
 ### Csharp ###
 
 # User-specific files

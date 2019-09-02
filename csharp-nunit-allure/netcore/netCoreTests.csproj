@@ -15,6 +15,8 @@
 
 
     <Product>test-automation-example</Product>
+
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +26,12 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.1" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="75.0.3770.90" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="allureConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
